@@ -1,0 +1,95 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 127.0.0.1
+    password: osRedis
+    port: 6379
+    database: 9
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/traffic_static?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: root@123
+    type: com.alibaba.druid.pool.DruidDataSource
+  multipart:
+    max-request-size: 100MB
+    max-file-size: 10MB
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 10MB
+mybatis:
+  type-aliases-package: com.traffic.server.entity, com.traffic.server.model
+  mapper-locations: classpath*:mapper/*.xml
+  type-handlers-package: com.traffic.server.handler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: com.traffic.server.handler.EnumTypeHandler
+    #mybatis打印sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+#银联秘钥测试环境
+unionPay:
+  u_appId: 10037e6f6823b20801682b6a5e5a0006
+  u_appKey: 1c4e3b16066244ae9b236a09e5b312e8
+  #商户号
+  u_mid: 898201612345678
+  #终端号
+  u_tid: 88880001
+  url:
+    #小程序微信下单
+    min_wx_unified_order: http://127.0.0.1:29015/v1/netpay/wx/unified-order
+    #小程序下单_支付宝小程序下单
+    min_ali_pay_unified_order: http://127.0.0.1:29015/v1/netpay/trade/create
+    #小程序支付订单查询
+    min_unified_order_query: http://127.0.0.1:29015/v1/netpay/query
+    #小程序退款
+    min_pay_unified_refund: http://127.0.0.1:29015/v1/netpay/refund
+    #小程序退款查询
+    min_pay_unified_refund_query: http://127.0.0.1:29015/v1/netpay/refund-query
+    #小程序未支付订单关闭
+    min_pay_unified_order_close: http://127.0.0.1:29015/v1/netpay/close
+    #小程序支付结果通知 先讯的地址
+    min_pay_unified_pay_msg: http://127.0.0.1:29015/v1/netpay/close
+
+
+swagger:
+  show: true
+
+# oss其中四个为固定参数 filedir(可以自定义)
+oss:
+  endpoint: XXXX
+  accessKeyId: XXXX
+  accessKeySecret: XXXX
+  bucketName: lpgoss
+  filedir: images
+pay:
+  wx:
+    #回调地址
+    NOTIFY_URL:
+    #回跳页面
+    RETURN_URL:
+    #微信支付商户号
+    mchID: XXXX
+    #微信支付API秘钥
+    key: XXXX
+    #APPID即创建应用后生成
+    appId: XXXX
+    #APP 秘钥
+    appApiKey: XXXX
+    httpConnectTimeoutMs: 8000
+    httpReadTimeoutMs: 10000
+wx:
+  mini:
+    appid: XXXX
+    secret: XXXX

@@ -1,0 +1,49 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 127.0.0.1
+    password: osRedis
+    port: 6379
+    database: 9
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/traffic_static?characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: root@123
+    type: com.alibaba.druid.pool.DruidDataSource
+  multipart:
+    max-request-size: 100MB
+    max-file-size: 10MB
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 10MB
+
+mybatis:
+  type-aliases-package: com.traffic.authentication.entity, com.traffic.authentication.model
+  mapper-locations: classpath*:mapper/*.xml
+  type-handlers-package: com.traffic.authentication.handler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: com.traffic.authentication.handler.EnumTypeHandler
+  #mybatis打印sql
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+swagger:
+  show: true
+
+
+
+
+

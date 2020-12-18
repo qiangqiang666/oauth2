@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traffic.authentication.mapper.MemberMapper">
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, del_flag, create_at, update_at, user_id, user_img, phone, user_nickname, birthday, 
+    sex, user_name, address, identity_card, `source`, car_no
+  </sql>
+  <select id="queryByUserName" resultType="com.traffic.authentication.entity.MemberEntity">
+    select * from t_member where phone = #{username}
+  </select>
+</mapper>

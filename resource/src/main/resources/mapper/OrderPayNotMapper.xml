@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.traffic.server.mapper.OrderPayNotMapper">
+  <resultMap id="BaseResultMap" type="com.traffic.server.entity.OrderPayNotEntity">
+    <!--@mbg.generated-->
+    <!--@Table t_order_pay_not-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="pay_code" jdbcType="VARCHAR" property="payCode" />
+    <result column="order_no" jdbcType="BIGINT" property="orderNo" />
+    <result column="biz_order_no" jdbcType="VARCHAR" property="bizOrderNo" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="total_amount" jdbcType="BIGINT" property="totalAmount" />
+    <result column="finish_time" jdbcType="TIMESTAMP" property="finishTime" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, pay_type, pay_code, order_no, `status`, total_amount, finish_time, `type`,
+    create_time,biz_order_no
+  </sql>
+</mapper>
